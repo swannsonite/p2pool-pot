@@ -47,11 +47,11 @@ Alternate web front end :
 -------------------------
 * https://github.com/hardcpp/P2PoolExtendedFrontEnd
 
-Notes for Litecoin:
+Notes for Potcoin:
 =========================
 Requirements:
 -------------------------
-In order to run P2Pool with the Litecoin network, you would need to build and install the
+In order to run P2Pool with the Potcoin network, you would need to build and install the
 ltc_scrypt module that includes the scrypt proof of work code that Litecoin uses for hashes.
 
 Linux:
@@ -83,17 +83,21 @@ http://stackoverflow.com/questions/6034390/compiling-with-cython-and-mingw-produ
 
 Running P2Pool:
 -------------------------
-Run P2Pool with the "--net litecoin" option.
-Run your miner program, connecting to 127.0.0.1 on port 9327.
-Forward port 9338 to the host running P2Pool.
+Run P2Pool with the "--net potcoin" option.
+Run your miner program, connecting to 127.0.0.1 on port 9420.
+Forward port 8420 to the host running P2Pool.
 
-Litecoin's use of ports 9332 and 9332 conflicts with P2Pool running on
-the Bitcoin network. To avoid problems, add these lines to litecoin.conf
-and restart litecoind:
+To avoid problems, add this line to potcoin.conf
+and restart potcoind:
 
-    rpcport=10332
-    port=10333
+    rpcport=42000
 
+Sponsors:
+-------------------------
+
+Thanks to:
+* The Bitcoin Foundation for its generous support of P2Pool
+* The Litecoin Project for its generous donations to P2Pool
 Sponsors:
 -------------------------
 
