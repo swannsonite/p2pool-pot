@@ -52,7 +52,7 @@ Notes for Potcoin:
 Requirements:
 -------------------------
 In order to run P2Pool with the Potcoin network, you would need to build and install the
-ltc_scrypt module that includes the scrypt proof of work code that Litecoin uses for hashes.
+ltc_scrypt module that includes the scrypt proof of work code that Potcoin uses for hashes.
 
 Linux:
 
