@@ -1,7 +1,7 @@
 Requirements:
 -------------------------
 Generic:
-* Bitcoin >=0.8.5
+* Potcoin >=0.8.6.3
 * Python >=2.6
 * Twisted >=10.0.0
 * python-argparse (for Python =2.6)
@@ -17,35 +17,6 @@ Windows:
 * Install python win32 api: http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/
 * Install python win32 api wmi wrapper: https://pypi.python.org/pypi/WMI/#downloads
 * Unzip the files into C:\Python27\Lib\site-packages
-
-Running P2Pool:
--------------------------
-To use P2Pool, you must be running your own local bitcoind. For standard
-configurations, using P2Pool should be as simple as:
-
-    python run_p2pool.py
-
-Then run your miner program, connecting to 127.0.0.1 on port 9332 with any
-username and password.
-
-If you are behind a NAT, you should enable TCP port forwarding on your
-router. Forward port 9333 to the host running P2Pool.
-
-Run for additional options.
-
-    python run_p2pool.py --help
-
-Donations towards further development:
--------------------------
-    1HNeqi3pJRNvXybNX4FKzZgYJsdTSqJTbk
-
-Official wiki :
--------------------------
-https://en.bitcoin.it/wiki/P2Pool
-
-Alternate web front end :
--------------------------
-* https://github.com/hardcpp/P2PoolExtendedFrontEnd
 
 Notes for Potcoin:
 =========================
@@ -83,14 +54,33 @@ http://stackoverflow.com/questions/6034390/compiling-with-cython-and-mingw-produ
 
 Running P2Pool:
 -------------------------
-Run P2Pool with the "--net potcoin" option.
+Run potcoind 
+Run "run_p2pool.py --net potcoin"
 Run your miner program, connecting to 127.0.0.1 on port 9420.
 Forward port 8420 to the host running P2Pool.
 
-To avoid problems, add this line to potcoin.conf
+To avoid problems, add these lines to potcoin.conf
 and restart potcoind:
 
     rpcport=42000
+    port=4200
+
+Run for additional options.
+
+    python run_p2pool.py --help
+
+Donations towards further development:
+-------------------------
+    1HNeqi3pJRNvXybNX4FKzZgYJsdTSqJTbk
+
+Official wiki :
+-------------------------
+https://en.bitcoin.it/wiki/P2Pool
+
+Alternate web front ends :
+-------------------------
+* https://github.com/hardcpp/P2PoolExtendedFrontEnd  
+* https://github.com/johndoe75/p2pool-node-status
 
 Sponsors:
 -------------------------
@@ -100,8 +90,3 @@ Thanks to:
 * The Litecoin Project for its generous donations to P2Pool
 Sponsors:
 -------------------------
-
-Thanks to:
-* The Bitcoin Foundation for its generous support of P2Pool
-* The Litecoin Project for its generous donations to P2Pool
-
