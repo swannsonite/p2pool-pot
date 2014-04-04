@@ -54,7 +54,7 @@ http://stackoverflow.com/questions/6034390/compiling-with-cython-and-mingw-produ
 
 Running P2Pool:
 -------------------------
-Run potcoind 
+Run potcoind
 Run "run_p2pool.py --net potcoin"
 Run your miner program, connecting to 127.0.0.1 on port 9420.
 Forward port 8420 to the host running P2Pool.
@@ -88,5 +88,3 @@ Sponsors:
 Thanks to:
 * The Bitcoin Foundation for its generous support of P2Pool
 * The Litecoin Project for its generous donations to P2Pool
-Sponsors:
--------------------------
