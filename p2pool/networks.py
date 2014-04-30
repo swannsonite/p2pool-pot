@@ -164,24 +164,23 @@ nets = dict(
         VERSION_CHECK=lambda v: True,
     ),
     diamond=math.Object(
-        P2P_PREFIX='fbc0b6db'.decode('hex'),
+        PARENT=networks.nets['diamond'],
+        SHARE_PERIOD=30, # seconds target spacing
+        CHAIN_LENGTH=24*60*60//10, # shares
+        REAL_CHAIN_LENGTH=24*60*60//10, # shares
+        TARGET_LOOKBEHIND=200, # shares coinbase maturity
+        SPREAD=30, # blocks
+        IDENTIFIER='6469616d6f6e6473'.decode('hex'),
+        PREFIX='6269676d6f6e6579'.decode('hex'),
         P2P_PORT=17771,
-        ADDRESS_VERSION=35,
-        RPC_PORT=17772,
-        RPC_CHECK=defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
-            'diamondaddress' in (yield bitcoind.rpc_help()) and
-            not (yield bitcoind.rpc_getinfo())['testnet']
-        )),
-        SUBSIDY_FUNC=lambda height: 1*10000000 >> (height + 1)//4204800,
-        POW_FUNC=lambda data: pack.IntType(256).unpack(__import__('ltc_scrypt').getPoWHash(data)),
-        BLOCK_PERIOD=60, # s targetspacing
-        SYMBOL='DMD',
-        CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'diamond') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/diamond/')  if platform.system() == 'Darwin' else os.path.expanduser('~/.diamond'), 'diamond.conf'),
-        BLOCK_EXPLORER_URL_PREFIX='http://d.evco.in/abe/block/',
-        ADDRESS_EXPLORER_URL_PREFIX='http://d.evco.in/abe/address/',
-        SANE_TARGET_RANGE=(2**256//100000000 - 1, 2**256//1000 - 1),
-        DUMB_SCRYPT_DIFF=2**16,
-    ),
+        MIN_TARGET=0,
+		MAX_TARGET=2**256//2**20 - 1,
+        PERSIST=False,
+        WORKER_PORT=17772,
+        BOOTSTRAP_ADDRS='chncoin.no-ip.biz'.split(' '),
+        ANNOUNCE_CHANNEL='#p2pool-alt',
+        VERSION_CHECK=lambda v: True,
+	), 
 )
 for net_name, net in nets.iteritems():
     net.NAME = net_name
